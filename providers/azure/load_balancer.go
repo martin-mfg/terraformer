@@ -132,7 +132,7 @@ func (g *LoadBalancerGenerator) listLoadBalancerBackendAddressPools(resourceGrou
 		loadBalancerID := re.ReplaceAllLiteralString(*loadBalancerBackendAddressPool.ID, "")
 		resources = append(resources, terraformutils.NewResource(
 			*loadBalancerBackendAddressPool.ID,
-			*loadBalancerBackendAddressPool.Name,
+			*loadBalancerBackendAddressPool.Name+"-"+*loadBalancerBackendAddressPool.ID,
 			"azurerm_lb_backend_address_pool",
 			g.ProviderName,
 			map[string]string{
